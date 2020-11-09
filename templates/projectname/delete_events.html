@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Edit your account{% endblock %}
+{% block content %}
+    <h1>Delete events</h1>
+    <form action="." method="post" enctype="multipart/form-data">
+        {{ event_delete.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Save changes"></p>
+    </form>
+{% endblock %}

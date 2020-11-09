@@ -1,0 +1,96 @@
+<style>
+
+    .dashboard-div {
+        display: flex;
+        height: 60px;
+        margin-right: 100px;
+        margin-left: 100px;
+        border-radius: 50px;
+        border: 3px solid #b1b1b3;
+        background-color: gray;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .div-g-map {
+        display: flex;
+        border: 2px solid #444446;
+        border-radius: 20px;
+        margin-top: 20px;
+        background-color: cadetblue;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        height: 70%;
+        background-image: url("/media/pic/gpick.jpg");
+
+    }
+
+    .div-g-map-edit-content {
+        display: flex;
+        height: 30px;
+        margin-top: 5px;
+        margin-right: 200px;
+        margin-left: 200px;
+        border-radius: 30px;
+        border: 3px solid #b1b1b3;
+        background-color: #a6cbe3;
+        justify-content: space-around;
+        align-items: center;
+
+    }
+
+    .name-dash {
+        background-color: gray;
+        color: #363535;
+        font-family: 'Fredoka One', cursive;
+        font-size: 30px;
+    }
+
+    .div-welcome-content {
+        margin-top: 50px;
+        text-align: end;
+        font-family: 'Architects Daughter', cursive;
+    }
+
+    .btn-edit-content {
+        border: 3px solid #78c767;
+        width: 15%;
+        background-color: #b0e3a6;
+        text-align: center;
+        border-radius: 12px;
+        margin: 0 auto;
+        font-family: 'Fredoka One', cursive;
+    }
+
+    .btn-del-content {
+        border: 3px solid #ab7474;
+        width: 15%;
+        background-color: #de9999;
+        text-align: center;
+        border-radius: 12px;
+        margin: 0 auto;
+        font-family: 'Fredoka One', cursive;
+    }
+
+</style>
+{% extends "base.html" %}
+{% block title %}My events{% endblock %}
+{% block content %}
+    <div class="all-content-div">
+        <div class="dashboard-div">
+            <p class="name-dash">My events</p>
+        </div>
+        <div class="div-g-map">
+            тут карта
+        </div>
+        <div class="div-g-map-edit-content">
+            <button class="btn-edit-content" type=button onclick="location.href='{% url "edit_event" %}'">Edit</button>
+            <button class="btn-del-content" type=button onclick="location.href='{% url "delete_event" %}'">Delete</button>
+        </div>
+        <div class="div-welcome-content">
+            You can <a href="{% url "edit" %} "> edit your profile</a> or
+            <a href="{% url "password_change" %} "> change your password</a>.</p>
+        </div>
+    </div>
+{% endblock %}
