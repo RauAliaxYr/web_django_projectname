@@ -31,6 +31,7 @@ def edit(request):
 
 @login_required
 def dashboard(request):
+
     return render(request, 'projectname/dashboard.html', {'section': 'dashboard'})
 
 

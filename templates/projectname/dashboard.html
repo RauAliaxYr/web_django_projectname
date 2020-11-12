@@ -17,14 +17,12 @@
         border: 2px solid #444446;
         border-radius: 20px;
         margin-top: 20px;
-        background-color: cadetblue;
         justify-content: center;
         align-items: center;
         width: auto;
         height: 70%;
-        background-image: url("/media/pic/gpick.jpg");
-
     }
+
 
     .div-g-map-edit-content {
         display: flex;
@@ -47,11 +45,6 @@
         font-size: 30px;
     }
 
-    .div-welcome-content {
-        margin-top: 50px;
-        text-align: end;
-        font-family: 'Architects Daughter', cursive;
-    }
 
     .btn-edit-content {
         border: 3px solid #78c767;
@@ -73,8 +66,18 @@
         font-family: 'Fredoka One', cursive;
     }
 
+    .all-content-div {
+        display: flex;
+        width: 100%;
+        height: calc(100% - 120px);
+        flex-direction: column;
+    }
+
 </style>
+
 {% extends "base.html" %}
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
 {% block title %}My events{% endblock %}
 {% block content %}
     <div class="all-content-div">
@@ -82,15 +85,13 @@
             <p class="name-dash">My events</p>
         </div>
         <div class="div-g-map">
-            тут карта
+
         </div>
         <div class="div-g-map-edit-content">
             <button class="btn-edit-content" type=button onclick="location.href='{% url "edit_event" %}'">Edit</button>
-            <button class="btn-del-content" type=button onclick="location.href='{% url "delete_event" %}'">Delete</button>
+            <button class="btn-del-content" type=button onclick="location.href='{% url "delete_event" %}'">Delete
+            </button>
         </div>
-        <div class="div-welcome-content">
-            You can <a href="{% url "edit" %} "> edit your profile</a> or
-            <a href="{% url "password_change" %} "> change your password</a>.</p>
-        </div>
+
     </div>
 {% endblock %}

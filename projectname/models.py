@@ -1,7 +1,8 @@
-from django.db import models
+
 
 from django.db import models
 from django.conf import settings
+
 
 
 class Profile(models.Model):
@@ -21,3 +22,5 @@ class Event(models.Model):
     image = models.ImageField()
     date = models.DateField()
     location = models.TextField()
+
+
