@@ -1,94 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
-<style>
-    head {
-        background-color: #c3e6fc;
-        height: 20px;
-    }
-
-    body {
-        background-color: #c3e6fc;
-    }
-
-    div {
-        background-color: #c3e6fc;
-    }
-
-    base {
-        background-color: #c3e6fc;
-    }
-
-    html {
-        background-color: #c3e6fc;
-    }
-
-    .text-muted {
-        margin-bottom: 5%;
-        text-align: center;
-    }
-
-    .date-of-company {
-        font-family: 'Architects Daughter', cursive;
-        margin: 0 auto;
-        height: 30px;
-    }
-
-    .message-info {
-        text-align: center;
-        font-family: 'Architects Daughter', cursive;
-
-    }
-
-    .btn-login-logout {
-        background: gray; /* Цвет фона */
-        border: 4px solid;
-        border-color: #444446; /* Параметры рамки */
-        padding: 5px; /* Поля вокруг текста */
-        height: 40px;
-        width: 100px;
-        border-radius: 8px;
-        color: #363535;
-        font-family: 'Fredoka One', cursive;
-        margin-right: 10px;
-        align-self: center;
-    }
-
-    .hello-username {
-        align-self: center;
-        font-family: 'Architects Daughter', cursive;
-
-    }
-
-    .head-div {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .top-menu-btn {
-        background: #b0e3a6; /* Цвет фона */
-        border: 4px solid;
-        border-color: #444446; /* Параметры рамки */
-        padding: 5px; /* Поля вокруг текста */
-        height: 30px;
-        width: 170px;
-        border-radius: 8px;
-        color: #363535;
-        font-family: 'Fredoka One', cursive;
-        align-self: center;
-        justify-content: center;
-
-    }
-</style>
-
 <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-
+<link href="{% static "css/main.css" %}" rel="stylesheet" type="text/css">
+<link href="{% static "css/login.css" %}" rel="stylesheet" type="text/css">
+<link href="{% static "css/edit_profile.css" %}" rel="stylesheet" type="text/css">
+<link href="{% static "css/change_pass.css" %}" rel="stylesheet" type="text/css">
+<link href="{% static "css/dashboard.css" %}" rel="stylesheet" type="text/css">
+<link href="{% static "css/register.css" %}" rel="stylesheet" type="text/css">
 
 <head>
 
     <title>{% block title %}{% endblock %}</title>
     <div class="head-div">
+
         {% if request.user.is_authenticated %}
             <p class="hello-username">Hello, {{ request.user.first_name }} !</p>
             {% if request.user.is_authenticated %}
@@ -113,26 +40,23 @@
                 Log-in
             </button>
         {% endif %}
+        <div class="message-info">
+            {% if messages %}
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">
+                        {{ message|safe }}
+                        <a href="#" class="close">x</a>
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </div>
     </div>
 </head>
 <body>
-<div class="message-info">
-    {% if messages %}
-        {% for message in messages %}
-            <li class="{{ message.tags }}">
-                {{ message|safe }}
-                <a href="#" class="close">x</a>
-            </li>
-        {% endfor %}
-    {% endif %}
-    <div>
-        {% block content %}
-        {% endblock %}
-    </div>
-
-</div>
+{% block content %}
+{% endblock %}
 </body>
-<div>
+<div class="date">
     {% block data %}
     {% endblock %}
 </div>
