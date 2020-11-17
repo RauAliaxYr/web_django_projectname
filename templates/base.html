@@ -10,6 +10,7 @@
 <link href="{% static "css/change_pass.css" %}" rel="stylesheet" type="text/css">
 <link href="{% static "css/dashboard.css" %}" rel="stylesheet" type="text/css">
 <link href="{% static "css/register.css" %}" rel="stylesheet" type="text/css">
+<link href="{% static "css/edit_event.css" %}" rel="stylesheet" type="text/css">
 
 <head>
 
@@ -29,12 +30,9 @@
                     Change your password
                 </button>
             {% endif %}
-
-
             <button class="btn-login-logout" type=button onclick="location.href='{% url "logout" %}'">
                 Logout
             </button>
-
         {% else %}
             <button class="btn-login-logout" type="button" onclick="location.href='{% url "login" %}'">
                 Log-in

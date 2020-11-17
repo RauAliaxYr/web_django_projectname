@@ -39,10 +39,10 @@ class ProfileEditForm(forms.ModelForm):
 class EventEditForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ('name', 'text', 'image', 'date')
+        fields = ('name', 'text_event', 'image', 'date', 'location')
 
 
 class EventDeleteForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ('text',)
+        fields = ('text_event',)

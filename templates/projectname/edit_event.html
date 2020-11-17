@@ -1,10 +1,42 @@
+<style>
+
+</style>
 {% extends "base.html" %}
 {% block title %}Edit your account{% endblock %}
 {% block content %}
-    <h1>Edit event</h1>
-    <form action="." method="post" enctype="multipart/form-data">
-        {{ event_edit }}
-        {% csrf_token %}
-        <p><input type="submit" value="Save changes"></p>
-    </form>
+    <div class="main-div-login-edit-event">
+        <div class="login-form-big">
+            <div class="login-form-edit-event">
+                <h1 class="login-name">Edit event</h1>
+                <form action="." method="post" enctype="multipart/form-data">
+                    <div class="label-login-form">
+                        <p>Event name</p>
+                        <p><input type="text" name="name" id="name" placeholder="Enter your event's name"/></p>
+                    </div>
+                    <div class="label-login-form">
+                        <p>Event location</p>
+                        <p><input type="text" name="location" id="location" placeholder="Enter your event's location"/>
+                        </p>
+                    </div>
+                    <div class="label-login-form">
+                        <p>Event description</p>
+                        <div class="input-label">
+                        <textarea cols="35" rows="8" maxlength="400" name="text_event" id="text_event"
+                                  placeholder="Please enter your event's description"></textarea>
+                        </div>
+                    </div>
+                    <div class="label-login-form">
+                        <p>Event image</p>
+                        <p>{{ event_edit.image }}</p>
+                    </div>
+                    {% csrf_token %}
+                    <div class="btn-event-edit">
+                    <p>
+                        <button type="submit" class="btn">Edit Event</button>
+                    </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
